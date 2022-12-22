@@ -26,8 +26,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 const Page = React.forwardRef((props: { pageNumber: number }, ref) => {
   return (
-    <div style={{ width: "100%", height: "100%" ,justifyItems:"center"}}>
-      <ReactPdfPage pageNumber={props.pageNumber} width={700}  height={1000}  />
+    <div style={{ width: "100%", height: "100%" ,justifyItems:"center" ,
+    transform: "rotate(180deg)"}}>
+      <ReactPdfPage pageNumber={props.pageNumber}  rotate={180}/>
     </div>
   );
 });
@@ -57,11 +58,15 @@ const _App = () => {
   }, []);
 
 
- 
+  // style={{ transform: "rotate(180deg)"}}
   return (
     <div className={classes.container}>
       <div className={classes.demo}>
-        <div className={classNames(classes.flippingPages, classes["left-to-right"])}>
+        <div  style={{ position: "absolute",
+          top: "180%",
+          left: "80%",
+          right:"80%"
+          }}>
           <Document
             ref={flipDocument}
             file={
@@ -85,12 +90,16 @@ const _App = () => {
               willChange='auto'
               // disableSwipe={true}
             >
+               {/* <div  style={{ position: "absolute",
+                  transform: "rotate(180deg)"}}> */}
               {pageIndex?.map((k, key) => { 
                 return (
 
-                  <Page pageNumber={key + 1} />
+                  <Page pageNumber={key + 1}  />
+
                 );
               })}
+                  {/* </div> */}
 
              
             </FlippingPages>

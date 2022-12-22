@@ -28,6 +28,7 @@
 
 .fullPage > * {
     inset: 0;
+    
 }
 
 .prevPage.bottom-to-top,
@@ -64,11 +65,11 @@
 
 .prevPage.left-to-right,
 .nextPage.right-to-left {
-    top: 0;
+    /* top: 0;
     right: 0;
     bottom: 0;
     width: 50%;
-    transform-origin: left;
+    transform-origin: left; */
 }
 
 :is(.prevPage.left-to-right, .nextPage.right-to-left) > :first-child {
@@ -80,11 +81,11 @@
 
 .prevPage.right-to-left,
 .nextPage.left-to-right {
-    top: 0;
+    /* top: 0;
     bottom: 0;
     left: 0;
     width: 50%;
-    transform-origin: right;
+    transform-origin: right; */
 }
 
 :is(.prevPage.right-to-left, .nextPage.left-to-right) > :first-child {
